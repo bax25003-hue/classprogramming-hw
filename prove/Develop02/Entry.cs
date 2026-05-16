@@ -12,6 +12,6 @@ class Entry
     // Functions
     public void Display()
     {
-        Console.WriteLine($"{_date} -- {_prompt} -- {_response}");
+        Console.WriteLine($"{_date} -- {_prompt} \n {_response}");
     }
 }
