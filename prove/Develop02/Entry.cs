@@ -2,7 +2,7 @@ class Entry
 {
     // DO NOT INCLUDE VARIABLES LIKE THIS
     // public string Response {get; set;}
-    // This is a Property
+    // This is a Property, and we haven't learned about those yet
 
     // Attributes
     public string _date;
@@ -10,8 +10,10 @@ class Entry
     public string _response;
 
     // Functions
-    public void Display()
+    public string Display()
     {
-        Console.WriteLine($"{_date} -- {_prompt} \n {_response}");
+        string entryToDisplay = $"Date: {_date}\n{_prompt} -- {_response}";
+        Console.WriteLine(entryToDisplay);
+        return entryToDisplay;
     }
 }
