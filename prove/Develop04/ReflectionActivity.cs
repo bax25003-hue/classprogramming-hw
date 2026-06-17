@@ -28,6 +28,13 @@ public class ReflectionActivity : Activity
             "The activity should conclude with the standard finishing message for all activities." 
         };
     }
+    public void BeginReflection(int secondsDuration)
+    {
+        base.DisplayStartingMessage();
+        Random random = new Random();
+        string prompt = _promptList[random.Next(_promptList.Count)];
+        Console.WriteLine(prompt);
+    }
 }
 // Reflection Activity
 // The activity should begin with the standard starting message and prompt for the duration that is used by all activities.
