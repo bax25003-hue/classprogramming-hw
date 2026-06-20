@@ -6,30 +6,60 @@ class Program
     static void Main(string[] args)
     {
         // To do:
-        // Create Menu System
         // Add a counter for the number of times each activity was completed
 
-        BreathingActivity testBreath = new BreathingActivity();
-        testBreath.DisplayStartingMessage();
-        testBreath.BeginActivity();
-        testBreath.DisplayEndMessage();
-        
-        // ListeningActivity testListen = new ListeningActivity();
-        // testListen.DisplayStartingMessage();
-        // testListen.BeginActivity();
-        // testListen.DisplayEndMessage();
+        int breathActivityCount = 0;
+        int reflectActivityCount = 0;
+        int listenActivityCount = 0;
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine($"  1. Start breathing activity (completions: {breathActivityCount})");
+            Console.WriteLine($"  2. Start reflection activity (completions: {reflectActivityCount})");
+            Console.WriteLine($"  3. Start listing activity (completions: {listenActivityCount})");
+            Console.WriteLine("  4. Quit");
+            Console.Write("Select a choice from the menu: ");
+            string userInput = Console.ReadLine();
+            int selection = int.Parse(userInput);
 
-        // ReflectionActivity testReflect = new ReflectionActivity();
-        // testReflect.DisplayStartingMessage();
-        // testReflect.BeginReflection();
-        // testReflect.DisplayEndMessage();
+            // Menu functions:
+            if ( selection == 1 )
+            {
+                BreathingActivity breathPlease = new BreathingActivity();
+                breathPlease.DisplayStartingMessage();
+                breathPlease.BeginActivity();
+                breathPlease.DisplayEndMessage();
+                breathActivityCount += 1;
+            }
+            else if ( selection == 2 )
+            {
+                ReflectionActivity reflectPlease = new ReflectionActivity();
+                reflectPlease.DisplayStartingMessage();
+                reflectPlease.BeginActivity();
+                reflectPlease.DisplayEndMessage();
+                reflectActivityCount += 1;
+            }
+            else if ( selection == 3 )
+            {
+                ListingActivity listenPlease = new ListingActivity();
+                listenPlease.DisplayStartingMessage();
+                listenPlease.BeginActivity();
+                listenPlease.DisplayEndMessage();
+                listenActivityCount += 1;
+            }
+            else if ( selection == 4)
+            {
+                break;
+            }
+        }
     }
 }
 // Solution Idea
 // Consider an app that provides three different kinds of mindfulness opportunities. It could give some guidance and structure to users in the following activities:
 
 // Breathing Activity - Help the user pace their breathing to have a session of deep breathing for a certain amount of time. They might find more peace and less stress through the exercise.
-// Reflection Activity - Guide the user to think deeply, by having them consider a certain experience when they were successful or demonstrated strength. Then, prompt them with questions to testReflect more deeply about details of this experience. They might discover more depth than they previously realized.
+// Reflection Activity - Guide the user to think deeply, by having them consider a certain experience when they were successful or demonstrated strength. Then, prompt them with questions to reflectPlease more deeply about details of this experience. They might discover more depth than they previously realized.
 // Listing Activity - Guide the user to think broadly, by helping them list as many things as they can in a certain area of strength or positivity. They might discover more breadth than they previously realized.
 // The application could additional help the user keep track of the time or frequency they spend in these activities and give them gentle prompts and reminders.
 
@@ -45,7 +75,7 @@ class Program
 // Each activity should end with a common ending message that tells the user they have done a good job, and pause and then tell them the activity they have completed and the length of time and pauses for several seconds before finishing.
 // Whenever the application pauses it should show some kind of animation to the user, such as a spinner, a countdown timer, or periods being displayed to the screen.
 // The interface for the program should remain generally true to the one shown in the video demo.
-// Provide activities for testReflection, breathing, and enumeration, as described below:
+// Provide activities for reflectPleaseion, breathing, and enumeration, as described below:
 // Breathing Activity
 // The activity should begin with the standard starting message and prompt for the duration that is used by all activities.
 // The description of this activity should be something like: "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."

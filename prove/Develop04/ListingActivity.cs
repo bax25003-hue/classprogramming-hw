@@ -16,13 +16,13 @@
 
 using System.Security.Cryptography.X509Certificates;
 
-public class ListeningActivity : Activity
+public class ListingActivity : Activity
 {
     // Attributes
     private List<string> _promptList;
 
     // Behaviors
-    public ListeningActivity() : base(
+    public ListingActivity() : base(
         "Listening Activity",
         "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area."
     )

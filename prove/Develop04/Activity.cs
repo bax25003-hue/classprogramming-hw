@@ -60,7 +60,7 @@ public class Activity
     {
         Console.WriteLine();
         Console.WriteLine($"Well done!");
-        this.SpinnerWait(4);
+        this.SpinnerWait(3);
         Console.WriteLine($"\nYou have completed another {this._duration} seconds of the {this._name}.");
         this.SpinnerWait(6);
     }
