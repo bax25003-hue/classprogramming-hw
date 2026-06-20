@@ -5,15 +5,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        Activity testActivity = new Activity("Test Activity", "This is a test activity to demonstrate the base class functionality.");
-        // testActivity.SpinnerWait(5);
+        // To do:
+        // Create Menu System
+        // Add a counter for the number of times each activity was completed
+        
+        ListeningActivity testListen = new ListeningActivity();
+        testListen.DisplayStartingMessage();
+        testListen.BeginActivity();
+        testListen.DisplayEndMessage();
 
-
-        ReflectionActivity testReflect = new ReflectionActivity();
-
-        testReflect.DisplayStartingMessage();
-        testReflect.BeginReflection();
-        testReflect.DisplayEndMessage();
+        // ReflectionActivity testReflect = new ReflectionActivity();
+        // testReflect.DisplayStartingMessage();
+        // testReflect.BeginReflection();
+        // testReflect.DisplayEndMessage();
     }
 }
 // Solution Idea

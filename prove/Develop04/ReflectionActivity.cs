@@ -30,7 +30,7 @@ public class ReflectionActivity : Activity
             "How can you keep this experience in mind in the future?", 
         };
     }
-    public void BeginReflection()
+    public override void BeginActivity()
     {
         Console.Clear();
 
@@ -41,10 +41,13 @@ public class ReflectionActivity : Activity
         Random random = new Random();
         string prompt = _promptList[random.Next(_promptList.Count)];
         Console.WriteLine(); // Blank Line
-        Console.WriteLine(prompt);
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine($" --- {prompt} --- ");
+        Console.WriteLine();
 
         // Once the user thinks of a response, have them press enter to continue
-        Console.WriteLine($"\nWhen you have something in mind, press enter to continue.");
+        Console.WriteLine();
+        Console.WriteLine($"When you have something in mind, press enter to continue.");
         Console.ReadLine();
 
         // Display the response message
@@ -56,8 +59,8 @@ public class ReflectionActivity : Activity
         Console.Clear();
 
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_duration);
-        while( DateTime.Now < futureTime )
+        DateTime endTime = startTime.AddSeconds(_duration);
+        while( DateTime.Now < endTime )
         {
             string question = _questionList[random.Next(_questionList.Count)];
             Console.Write($"> {question} ");

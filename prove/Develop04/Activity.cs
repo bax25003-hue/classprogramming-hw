@@ -43,17 +43,25 @@ public class Activity
         while ( duration > 0)
         {
             Console.Write(duration);
+            int durationCharLength = duration.ToString().Length;
             duration -= 1;
             Thread.Sleep(1000);
-            Console.Write("\b");
+            for (int i = durationCharLength; i > 0; i--)
+            {
+                Console.Write("\b \b");
+            }
         }
+    }
+    public virtual void BeginActivity()
+    {
+        Console.WriteLine("If you are seeing this, the programmer messed up somewhere lol");
     }
     public void DisplayEndMessage()
     {
         Console.WriteLine($"Well done!");
         this.SpinnerWait(4);
         Console.WriteLine($"\nYou have completed another {this._duration} seconds of the {this._name}.");
-        this.SpinnerWait(8);
+        this.SpinnerWait(6);
     }
 
     // public void AskForDuration()
