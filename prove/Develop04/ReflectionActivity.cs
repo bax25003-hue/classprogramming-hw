@@ -3,9 +3,12 @@ using System.Xml;
 
 public class ReflectionActivity : Activity
 {
+    // Attributes
     private string _responseMessage;
     private List<string> _promptList;
     private List<string> _questionList;
+
+    // Behaviors
     public ReflectionActivity() : base(
         "Reflection Activity",
         "In this activity, you will be given a prompt, and you will reflect on moments in your life where you have shown resilience and strength. Thinking about these situations will help you apply these principles in your life."
@@ -58,8 +61,7 @@ public class ReflectionActivity : Activity
         // Loop through questions for the duration of secondsDuration;
         Console.Clear();
 
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
         while( DateTime.Now < endTime )
         {
             string question = _questionList[random.Next(_questionList.Count)];

@@ -58,6 +58,7 @@ public class Activity
     }
     public void DisplayEndMessage()
     {
+        Console.WriteLine();
         Console.WriteLine($"Well done!");
         this.SpinnerWait(4);
         Console.WriteLine($"\nYou have completed another {this._duration} seconds of the {this._name}.");

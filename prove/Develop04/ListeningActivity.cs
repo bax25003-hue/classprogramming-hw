@@ -52,8 +52,7 @@ public class ListeningActivity : Activity
 
         // Allow the user to respond to messages for their requested time
         Console.WriteLine();
-        DateTime currentTime = DateTime.Now;
-        DateTime endTime = currentTime.AddSeconds(_duration);
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
         int listCount = 0; // To count the number of user responses
         while ( DateTime.Now < endTime )
         {

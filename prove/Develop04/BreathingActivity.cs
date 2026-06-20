@@ -7,3 +7,35 @@
 // It should continue until it has reached the number of seconds the user specified for the duration.
 // The activity should conclude with the standard finishing message for all activities.
 
+public class BreathingActivity : Activity
+{
+    // Attributes: none
+    // Behaviors
+    public BreathingActivity() : base(
+        "Breathing Activity",
+        "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."
+    )
+    {
+    }
+    public override void BeginActivity()
+    {
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        this.SpinnerWait(5);
+
+        // Breath in and out for the duration of the activity 
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        while ( DateTime.Now < endTime)
+        {
+            Console.WriteLine();
+
+            Console.Write("Breath in... ");
+            this.CountWait(3);
+            Console.WriteLine();
+            
+            Console.Write("Now breath out... ");
+            this.CountWait(4);
+            Console.WriteLine();
+        }
+    }
+}

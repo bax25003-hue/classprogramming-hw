@@ -8,11 +8,16 @@ class Program
         // To do:
         // Create Menu System
         // Add a counter for the number of times each activity was completed
+
+        BreathingActivity testBreath = new BreathingActivity();
+        testBreath.DisplayStartingMessage();
+        testBreath.BeginActivity();
+        testBreath.DisplayEndMessage();
         
-        ListeningActivity testListen = new ListeningActivity();
-        testListen.DisplayStartingMessage();
-        testListen.BeginActivity();
-        testListen.DisplayEndMessage();
+        // ListeningActivity testListen = new ListeningActivity();
+        // testListen.DisplayStartingMessage();
+        // testListen.BeginActivity();
+        // testListen.DisplayEndMessage();
 
         // ReflectionActivity testReflect = new ReflectionActivity();
         // testReflect.DisplayStartingMessage();
