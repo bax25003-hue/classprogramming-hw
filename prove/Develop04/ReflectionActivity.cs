@@ -1,5 +1,9 @@
+using System.Runtime.CompilerServices;
+using System.Xml;
+
 public class ReflectionActivity : Activity
 {
+    private string _responseMessage;
     private List<string> _promptList;
     private List<string> _questionList;
     public ReflectionActivity() : base(
@@ -7,6 +11,7 @@ public class ReflectionActivity : Activity
         "In this activity, you will be given a prompt, and you will reflect on moments in your life where you have shown resilience and strength. Thinking about these situations will help you apply these principles in your life."
     )
     {
+        _responseMessage = "Now that you have pondered on the prompt for a few moments, answer to yourself the following questions:";
         _promptList = new List<string> { 
             "Think of a time when you stood up for someone else.", 
             "Think of a time when you did something really difficult.", 
@@ -23,17 +28,42 @@ public class ReflectionActivity : Activity
             "What could you learn from this experience that applies to other situations?", 
             "What did you learn about yourself through this experience?", 
             "How can you keep this experience in mind in the future?", 
-            "After each question the program should pause for several seconds before continuing to the next one. While the program is paused it should display a kind of spinner.", 
-            "It should continue showing random questions until it has reached the number of seconds the user specified for the duration.", 
-            "The activity should conclude with the standard finishing message for all activities." 
         };
     }
-    public void BeginReflection(int secondsDuration)
+    public void BeginReflection()
     {
-        base.DisplayStartingMessage();
+        Console.Clear();
+
+        Console.WriteLine("Get ready...");
+        this.SpinnerWait(5);
+
+        // Get a prompt and dispaly it
         Random random = new Random();
         string prompt = _promptList[random.Next(_promptList.Count)];
+        Console.WriteLine(); // Blank Line
         Console.WriteLine(prompt);
+
+        // Once the user thinks of a response, have them press enter to continue
+        Console.WriteLine($"\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
+
+        // Display the response message
+        Console.WriteLine(_responseMessage);
+        Console.Write("You may begin in: ");
+            this.CountWait(5); // Appends the counter to the end of the message
+
+        // Loop through questions for the duration of secondsDuration;
+        Console.Clear();
+
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+        while( DateTime.Now < futureTime )
+        {
+            string question = _questionList[random.Next(_questionList.Count)];
+            Console.Write($"> {question} ");
+            this.SpinnerWait(12);
+            Console.WriteLine();
+        }
     }
 }
 // Reflection Activity
@@ -42,5 +72,9 @@ public class ReflectionActivity : Activity
 // After the starting message, select a random prompt to show the user such as:
 
 
-// After displaying the prompt, the program should ask the to reflect on questions that relate to this experience. These questions should be pulled from a list such as the following:
+// After displaying the prompt, the program should ask the to reflect on questions that relate to this experience. These questions should be pulled from a list
+
+// After each question the program should pause for several seconds before continuing to the next one. While the program is paused it should display a kind of spinner.
+// It should continue showing random questions until it has reached the number of seconds the user specified for the duration.
+// The activity should conclude with the standard finishing message for all activities."
 

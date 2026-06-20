@@ -1,18 +1,26 @@
 using System;
+using System.Reflection;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
-        ReflectionActivity reflectionActivity = new ReflectionActivity();
+        Activity testActivity = new Activity("Test Activity", "This is a test activity to demonstrate the base class functionality.");
+        // testActivity.SpinnerWait(5);
+
+
+        ReflectionActivity testReflect = new ReflectionActivity();
+
+        testReflect.DisplayStartingMessage();
+        testReflect.BeginReflection();
+        testReflect.DisplayEndMessage();
     }
 }
 // Solution Idea
 // Consider an app that provides three different kinds of mindfulness opportunities. It could give some guidance and structure to users in the following activities:
 
 // Breathing Activity - Help the user pace their breathing to have a session of deep breathing for a certain amount of time. They might find more peace and less stress through the exercise.
-// Reflection Activity - Guide the user to think deeply, by having them consider a certain experience when they were successful or demonstrated strength. Then, prompt them with questions to reflect more deeply about details of this experience. They might discover more depth than they previously realized.
+// Reflection Activity - Guide the user to think deeply, by having them consider a certain experience when they were successful or demonstrated strength. Then, prompt them with questions to testReflect more deeply about details of this experience. They might discover more depth than they previously realized.
 // Listing Activity - Guide the user to think broadly, by helping them list as many things as they can in a certain area of strength or positivity. They might discover more breadth than they previously realized.
 // The application could additional help the user keep track of the time or frequency they spend in these activities and give them gentle prompts and reminders.
 
@@ -28,7 +36,7 @@ class Program
 // Each activity should end with a common ending message that tells the user they have done a good job, and pause and then tell them the activity they have completed and the length of time and pauses for several seconds before finishing.
 // Whenever the application pauses it should show some kind of animation to the user, such as a spinner, a countdown timer, or periods being displayed to the screen.
 // The interface for the program should remain generally true to the one shown in the video demo.
-// Provide activities for reflection, breathing, and enumeration, as described below:
+// Provide activities for testReflection, breathing, and enumeration, as described below:
 // Breathing Activity
 // The activity should begin with the standard starting message and prompt for the duration that is used by all activities.
 // The description of this activity should be something like: "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."
