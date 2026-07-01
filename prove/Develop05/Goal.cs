@@ -1,7 +1,8 @@
 public class Goal
 {
     // Attributes
-    protected string ClassName => this.GetType().Name; // I know it's a property, I looked up a bunch of information on the differences between properties and fields
+    protected string ClassName => this.GetType().Name; 
+        // Explanation: I didn't want to set up a distinct method to get the class name, so I just made sure that  
     protected string _title;
     protected string _desc;
     protected int _points; // The value of points awarded by completing the goal
@@ -15,7 +16,7 @@ public class Goal
     }
     public virtual void Display()
     {
-        Console.WriteLine($"{_title}: {_desc}");
+        Console.WriteLine($"( ) {_title} {_desc}");
     }
     public virtual string GetSaveString()
     {
