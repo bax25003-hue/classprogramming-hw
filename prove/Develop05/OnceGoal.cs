@@ -8,26 +8,27 @@ public class OnceGoal : Goal
     private bool _completed;
 
     // Behaviors
-    public OnceGoal(string title, string desc, int points) : base(title, desc, points)
+    public OnceGoal(string title, string desc, uint points, bool completed = false) : base(title, desc, points)
     {
-        _completed = false;
-    }
-    public override void AdvanceGoal()
-    {
-        if (_completed == false)
-        {
-            _completed = true;
-        }
+        _completed = completed;
     }
     public override void Display()
     {
         if ( _completed == false)
         {
-            Console.WriteLine($"( ) {_title} ({_desc})");
+            Console.Write($"( ) {_title} ({_desc})");
         }
         else
         {
-            Console.WriteLine($"(X) {_title} ({_desc})");
+            Console.Write($"(X) {_title} ({_desc})");
         }
+    }
+    public override bool AdvanceGoal()
+    {
+        if (_completed == false)
+        {
+            _completed = true;
+        }
+        return _completed;
     }
 }
