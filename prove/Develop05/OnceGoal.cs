@@ -33,7 +33,6 @@ public class OnceGoal : Goal
         if (_completed == true)
         {
             return null;
-            return null;
         }
 
         // Otherwise, completes the goal
@@ -41,7 +40,6 @@ public class OnceGoal : Goal
         {
             _completed = true;
         }
-        return _completed;
         return _completed;
     }
 

@@ -49,7 +49,6 @@ public class CheckpointGoal : Goal
             _completed = true;
         }
         return _completed;
-        return _completed;
     }
     public override uint GetPoints()
     {
