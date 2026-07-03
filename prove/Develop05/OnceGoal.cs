@@ -23,12 +23,24 @@ public class OnceGoal : Goal
             Console.Write($"(X) {_title} ({_desc})");
         }
     }
-    public override bool AdvanceGoal()
+    public override string GetSaveString()
     {
+        return $"{this.ClassName}--{_title}--{_desc}--{_points}--{_completed}";
+    }
+    public override void AdvanceGoal()
+    {
+        // Cannot re-complete this type of goal
+        if (_completed == true)
+        {
+            Console.WriteLine("Sorry, this goal has already been completed. Please try again.");
+            return;
+        }
+
+        // Otherwise, completes the goal
         if (_completed == false)
         {
             _completed = true;
         }
-        return _completed;
     }
+
 }

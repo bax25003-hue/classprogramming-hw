@@ -22,15 +22,14 @@ public class Goal
     {
         return $"{this.ClassName}--{_title}--{_desc}--{_points}";
     }
-    public uint GetPoints()
+    public virtual uint GetPoints()
     {
         return _points;
     }
-    public virtual bool AdvanceGoal()
+    public virtual void AdvanceGoal()
     {
         // Logic to be added in child goals:
             // Every goal has unique completion logic to be written, therefore it
             // shouldn't be written here.
-        return false;
     }
 }
