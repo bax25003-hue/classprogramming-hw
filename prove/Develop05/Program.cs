@@ -13,10 +13,6 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop05 World!");
-        // AdvanceGoal methods only access and change _completed; the method returns nothing
-
-        // Extra completed: Part 1 of Operation Stop-Sign ()
-        // To-do: complete Part 2 of Operation Stop-Sign (prevent points from allocating)
 
         Console.WriteLine("Hello there! Welcome to your goal-setting program!");
 
@@ -42,7 +38,10 @@ class Program
             uint menuInput = uint.Parse(userInput);
             Console.WriteLine(); // spacing
 
-            // Menu logic: 
+
+
+        // Menu logic: 
+
             // New Goal
             if (menuInput == 1)
             {
@@ -239,7 +238,16 @@ class Program
                 // GetPoints() does the calculations for how many points should be awarded (e.g., not awarding bonus points
                 // in the case of CheckpointGoals)
                 int goalsIndex = goalSelection - 1;
-                goals[goalsIndex].AdvanceGoal();
+                bool? advanceResult = goals[goalsIndex].AdvanceGoal();
+
+                // Checks for a null return value, which signifies a goal that is already completed
+                if (advanceResult is null)
+                {
+                    Console.WriteLine("Sorry, this goal has already been completed. Please try again.");
+                    Console.WriteLine();
+                    Console.WriteLine($"You still have {totalPoints} points.");
+                    continue; // Breaks the loop, stops points from being added, and returns to the menu
+                }
                 uint earnedPoints = goals[goalsIndex].GetPoints();
                 Console.WriteLine($"Congratulations! You have earned {earnedPoints} points!");
                 totalPoints += earnedPoints;

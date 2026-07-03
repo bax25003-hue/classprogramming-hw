@@ -27,13 +27,12 @@ public class OnceGoal : Goal
     {
         return $"{this.ClassName}--{_title}--{_desc}--{_points}--{_completed}";
     }
-    public override void AdvanceGoal()
+    public override bool? AdvanceGoal()
     {
         // Cannot re-complete this type of goal
         if (_completed == true)
         {
-            Console.WriteLine("Sorry, this goal has already been completed. Please try again.");
-            return;
+            return null;
         }
 
         // Otherwise, completes the goal
@@ -41,6 +40,7 @@ public class OnceGoal : Goal
         {
             _completed = true;
         }
+        return _completed;
     }
 
 }

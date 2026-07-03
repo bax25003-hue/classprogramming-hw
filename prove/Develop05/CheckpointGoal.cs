@@ -35,13 +35,12 @@ public class CheckpointGoal : Goal
     {
         return $"{this.ClassName}--{_title}--{_desc}--{_points}--{_maxCount}--{_bonusPoints}--{_currentCount}--{_completed}";
     }
-    public override void AdvanceGoal()
+    public override bool? AdvanceGoal()
     {
         // Cannot re-complete this type of goal
         if (_completed == true)
         {
-            Console.WriteLine("Sorry, this goal has already been completed. Please try again.");
-            return;
+            return null;
         }
         // Otherwise, adds to completion counter, completes when _maxCount is reached
         _currentCount += 1;
@@ -49,6 +48,7 @@ public class CheckpointGoal : Goal
         {
             _completed = true;
         }
+        return _completed;
     }
     public override uint GetPoints()
     {

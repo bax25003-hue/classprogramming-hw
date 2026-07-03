@@ -26,10 +26,11 @@ public class Goal
     {
         return _points;
     }
-    public virtual void AdvanceGoal()
+    public virtual bool? AdvanceGoal()
     {
         // Logic to be added in child goals:
             // Every goal has unique completion logic to be written, therefore it
             // shouldn't be written here.
+        return false;
     }
 }
