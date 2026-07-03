@@ -41,7 +41,6 @@ public class CheckpointGoal : Goal
         if (_completed == true)
         {
             return null;
-            return null;
         }
         // Otherwise, adds to completion counter, completes when _maxCount is reached
         _currentCount += 1;
