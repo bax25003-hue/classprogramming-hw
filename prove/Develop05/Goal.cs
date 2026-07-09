@@ -2,7 +2,7 @@ public class Goal
 {
     // Attributes
     protected string ClassName => this.GetType().Name; 
-        // Explanation: I didn't want to set up a distinct method to get the class name, so I just made sure that  
+        // Explanation: I didn't want to set up a distinct method to get the class name, so I just used a lambda-function property
     protected string _title;
     protected string _desc;
     protected uint _points; // The value of points awarded by completing the goal
