@@ -24,7 +24,7 @@ public abstract class Exercise
     {
         return _weight;
     }
-    public void ChangeValues(string name, uint reps, uint weight)
+    public virtual void ChangeValues(string name, uint reps, uint weight)
     {
         _name = name;
         _reps = reps;
