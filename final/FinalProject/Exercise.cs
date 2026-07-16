@@ -20,7 +20,7 @@ public abstract class Exercise
     {
         return _reps;
     }
-    public uint GetWeight()
+    public virtual uint GetWeight()
     {
         return _weight;
     }
@@ -30,5 +30,5 @@ public abstract class Exercise
         _reps = reps;
         _weight = weight;
     }
-
+    public abstract List<string> GetMuscleGroups();
 }
