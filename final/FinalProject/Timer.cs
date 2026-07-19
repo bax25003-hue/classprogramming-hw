@@ -19,24 +19,10 @@ public class Timer
         }
         else
         {
-            throw new InvalidOperationException("You already started your workout!");
+            throw new InvalidOperationException("This timer has already been started!");
         }
     }
-    public TimeSpan StopTimer()
-    {
-        if (_startTime != null)
-        {
-            DateTime originalStartTime = (DateTime)_startTime;
-            _endTime = DateTime.Now;
-            TimeSpan workoutDuration = _endTime - originalStartTime;
-            return workoutDuration;
-        }
-        else
-        {
-            throw new InvalidOperationException("You haven't started your workout yet!");
-        }
-    }
-    public TimeSpan TimeStamp()
+    public TimeSpan Timestamp() // Works for both getting a timestamp and stopping a timer, the program will also remove the timer if it is stopped.
     {
         if (_startTime != null)
         {
@@ -46,7 +32,18 @@ public class Timer
         }
         else
         {
-            throw new InvalidOperationException("You haven't started your workout yet!");
+            throw new InvalidOperationException("You haven't started this timer yet!");
         }
+    }
+    public string MinutesAndSeconds()
+    {
+        TimeSpan rawTime = this.Timestamp();
+        string timerString = $"{(int)rawTime.TotalMinutes}:{rawTime.Seconds}";
+        return timerString;
+    }
+    public string MinutesAndSeconds(TimeSpan rawTime)
+    {
+        string timeString = $"{(int)rawTime.TotalMinutes}:{rawTime.Seconds}";
+        return timeString;
     }
 }

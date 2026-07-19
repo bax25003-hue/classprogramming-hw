@@ -1,7 +1,7 @@
-public abstract class MachineExercise : Exercise
+public class MachineExercise : ExerciseSet
 {
     // Attributes
-    protected double _cableRatio;
+    private double _cableRatio;
 
     // Behaviors
     public MachineExercise(string name, uint reps, uint weight, double cableRatio = 1) : base(name, reps, weight)
@@ -15,5 +15,9 @@ public abstract class MachineExercise : Exercise
     {
         uint roundedWeight = (uint)Math.Round(_weight * _cableRatio, 0);
         return roundedWeight;
+    }
+    public override string GetSaveString()
+    {
+        return $"{ClassName}|{_name}|{_reps}|{_weight}|{_cableRatio}";
     }
 }
